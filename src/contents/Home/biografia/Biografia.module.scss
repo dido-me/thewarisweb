@@ -1,0 +1,45 @@
+@use './src/styles/mixins/utilities';
+@import url('http://fonts.cdnfonts.com/css/cutive-mono');
+
+.Section {
+  @include utilities.section-100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  font-family: 'Cutive Mono', sans-serif;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('/bg-bio-section.png') no-repeat center center;
+    background-size: 180% 98%;
+    opacity: 0.5;
+    z-index: -9;
+    filter: blur(5vw);
+  }
+
+  &__Right {
+    grid-area: 1/1/2/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__Center {
+    grid-area: 1/2/2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__Left {
+    grid-area: 1/3/2/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

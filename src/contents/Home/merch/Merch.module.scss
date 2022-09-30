@@ -1,0 +1,156 @@
+@use './src/styles/mixins/utilities';
+@use './src/styles/mixins/mediaQueries';
+
+.Section {
+  @include utilities.section-100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('/bg-merch.png') no-repeat center center;
+    background-size: 180% 90%;
+    opacity: 0.5;
+    z-index: -9;
+  }
+  &__Right {
+    position: relative;
+    grid-area: 1/3/2/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__Center {
+    position: relative;
+    grid-area: 1/2/2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 4rem;
+    gap: 4rem;
+  }
+
+  &__Left {
+    position: relative;
+    grid-area: 1/1/2/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__img {
+    width: 16rem;
+  }
+
+  &__link {
+    border: 1px solid #ea644b;
+    padding: 1rem;
+    border-radius: 20px;
+
+    &:hover {
+      background: #ea644b;
+      color: #fff;
+    }
+
+    @include mediaQueries.for-phone {
+      padding: 0.5rem;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.Animate {
+  &__bolso {
+    animation: fadeInBolso 1s ease;
+  }
+
+  @keyframes fadeInBolso {
+    0% {
+      opacity: 0;
+      transform-origin: left;
+      transform: translate(-100%, -50%) rotate(-90deg);
+    }
+    50% {
+      transform: translateX(5%);
+    }
+  }
+
+  &__polera {
+    animation: fadeInPolera 1s ease;
+  }
+
+  @keyframes fadeInPolera {
+    0% {
+      opacity: 0;
+      transform-origin: left;
+      transform: translate(-100%, 50%) rotate(-40deg);
+    }
+    50% {
+      transform: translateX(5%);
+    }
+  }
+
+  &__gorra {
+    animation: fadeInGorra 1s ease;
+  }
+
+  @keyframes fadeInGorra {
+    0% {
+      opacity: 0;
+      transform-origin: top;
+      transform: translateY(-150%);
+    }
+    50% {
+      transform: translateY(5%);
+    }
+  }
+
+  &__logo {
+    animation: fadeInLogo 1s ease;
+  }
+
+  @keyframes fadeInLogo {
+    0%,
+    30% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+  }
+
+  &__polera2 {
+    animation: fadeInPolera2 1s ease;
+  }
+
+  @keyframes fadeInPolera2 {
+    0% {
+      opacity: 0;
+      transform-origin: right;
+      transform: translate(100%, -50%) rotate(40deg);
+    }
+    50% {
+      transform: translateX(-5%);
+    }
+  }
+
+  &__polera3 {
+    animation: fadeInPolera3 1s ease;
+  }
+
+  @keyframes fadeInPolera3 {
+    0% {
+      opacity: 0;
+      transform-origin: right;
+      transform: translate(100%, 50%) rotate(40deg);
+    }
+    50% {
+      transform: translateX(-5%);
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use './src/styles/mixins/utilities';
+@use './src/styles/mixins/mediaQueries';
+
+.Section {
+  @include utilities.section-100vh;
+  max-height: 100vh;
+
+  @include mediaQueries.for-phone {
+    @include utilities.section-size(max-content);
+  }
+
+  &__verVideo {
+    background: rgba(#cecccc, 1);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10em;
+    margin: 2em;
+    padding: 1em;
+    animation: roteAround 20s linear infinite;
+    @include mediaQueries.for-phone {
+      width: 3em;
+      margin: 0.5em;
+      padding: 0.2em;
+      top: 35%;
+    }
+  }
+
+  @keyframes roteAround {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__redesDesktop {
+    background: rgba(#000000, 0.8);
+    border-radius: 10%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 2em;
+    margin-right: 0em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    @include mediaQueries.for-phone {
+      display: none;
+    }
+  }
+
+  &__redesMobile {
+    background: rgba(#000000, 0.8);
+    border-radius: 10%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    padding: 0.5em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    @include mediaQueries.for-phone {
+      display: flex;
+    }
+  }
+}

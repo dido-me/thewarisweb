@@ -1,0 +1,42 @@
+---
+---
+
+<div class="Loading">
+  <img src="/loading.gif" alt="Cigarrito" class="Loading__gif" />
+</div>
+
+<style lang="scss">
+  @use './src/styles/mixins/mediaQueries';
+
+  .Loading {
+    position: absolute;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 999;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--hide {
+      display: none;
+    }
+
+    &__gif {
+      width: 20vw;
+      @include mediaQueries.for-phone {
+        width: 60vw;
+      }
+    }
+  }
+</style>
+
+<script>
+  const preloader = document.querySelector('.Loading')
+  const container = document.querySelector('.Container')
+
+  window.addEventListener('load', () => {
+    preloader!.classList.add('Loading--hide')
+    container!.classList.add('Container--visble')
+  })
+</script>

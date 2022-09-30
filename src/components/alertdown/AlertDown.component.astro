@@ -1,0 +1,53 @@
+---
+---
+
+<div class="Alert">
+  <h1 class="Alert__h1">
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+    ></script>
+
+    <lottie-player
+      src="https://lottie.host/15595ab4-20ad-4d7c-91be-1fdd3fdc352e/P84CuL8Q1S.json"
+      background="transparent"
+      speed="1"
+      class="Alert__lottie"
+      loop
+      autoplay
+    />
+  </h1>
+</div>
+
+<style lang="scss">
+  .Alert {
+    position: fixed;
+    display: block;
+    color: rgb(32, 112, 4);
+    bottom: 0;
+    right: 0;
+    padding: 5vw;
+    z-index: 99;
+
+    &--hidden {
+      display: none;
+    }
+
+    &__lottie {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+</style>
+
+<script>
+  const html = document.documentElement
+  html.scrollHeight
+
+  const isMaxScroll = () => {
+    const maxScroll = html.scrollHeight - window.innerHeight
+    html.scrollTop > maxScroll - 100
+      ? document.querySelector('.Alert')!.classList.add('Alert--hidden')
+      : document.querySelector('.Alert')!.classList.remove('Alert--hidden')
+  }
+  window.addEventListener('scroll', isMaxScroll)
+</script>

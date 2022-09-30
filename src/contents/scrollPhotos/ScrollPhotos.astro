@@ -1,0 +1,41 @@
+---
+import AlertDown from '@/components/alertdown/AlertDown.component.astro'
+import Loading from '@/components/loading/Loading.component.astro'
+import Links from './components/links/Links.component.astro'
+---
+
+<Loading />
+
+<AlertDown />
+
+<Links />
+
+<div class="Container">
+  <canvas class="Container__canvas"></canvas>
+</div>
+
+<style lang="scss">
+  .Container {
+    background-color: black;
+    min-height: 400vh;
+    display: none;
+
+    &--visble {
+      display: block;
+    }
+
+    &__canvas {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 100vh;
+      max-width: 100vw;
+    }
+  }
+</style>
+
+<script>
+  import Scroll from './Scroll'
+  Scroll()
+</script>

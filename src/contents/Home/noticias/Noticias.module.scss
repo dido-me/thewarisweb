@@ -1,0 +1,160 @@
+@use './src/styles/mixins/utilities';
+@use './src/styles/mixins/mediaQueries';
+
+.Fecha {
+  font-size: 0.8em;
+  background-color: #3e00c2;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 1em;
+  width: max-content;
+}
+
+.TitleNoticia {
+  font-size: 2em;
+  font-weight: bold;
+  @include mediaQueries.for-phone {
+    font-size: 2em;
+  }
+}
+
+.Card {
+  width: 30rem;
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6em;
+  @include mediaQueries.for-phone {
+    align-items: center;
+    width: 20rem;
+    height: 30rem;
+    padding-top: 2em;
+  }
+}
+
+.Img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 1em;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__desc {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 2em;
+  }
+
+  &__blur {
+    position: absolute;
+    width: 200%;
+    height: 40%;
+    bottom: -10%;
+    left: calc(-100% / 2);
+    background-color: #000000;
+    filter: blur(2em);
+  }
+}
+
+.CardSmall {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.Section {
+  @include utilities.section-size(100vh);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40em 1fr;
+
+  @include mediaQueries.for-phone {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3e00c2;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(8em);
+    z-index: -9;
+  }
+
+  &__BigNoticias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    @include mediaQueries.for-phone {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+
+  &__SmallNoticias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    @include mediaQueries.for-phone {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}
+
+.BigNoticias {
+  &__1 {
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    @include utilities.flex(row, center, center);
+    @include mediaQueries.for-phone {
+      border-right: none;
+    }
+  }
+  &__2 {
+    border-bottom: 1px solid #fff;
+    @include utilities.flex(row, center, center);
+  }
+}
+
+.SmallNoticias {
+  &__1 {
+    border-right: 1px solid #fff;
+    @include utilities.flex(row, center, center);
+    @include mediaQueries.for-phone {
+      border-right: none;
+      border-bottom: 1px solid #fff;
+    }
+  }
+  &__2 {
+    border-right: 1px solid #fff;
+    @include utilities.flex(row, center, center);
+    @include mediaQueries.for-phone {
+      border-right: none;
+      border-bottom: 1px solid #fff;
+    }
+  }
+  &__3 {
+    @include utilities.flex(row, center, center);
+    @include mediaQueries.for-phone {
+      border-bottom: 1px solid #fff;
+    }
+  }
+}

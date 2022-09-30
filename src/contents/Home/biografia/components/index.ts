@@ -1,0 +1,6 @@
+export { default as CardBioAlvaro } from './cardBio/alvaro/CardBioAlvaro.component'
+export { default as CardBioDiego } from './cardBio/diego/CardBioDiego.component'
+export { default as CardBioGonza } from './cardBio/gonzalo/CardBioGonza.component'
+export { default as CardBioHugo } from './cardBio/hugo/CardBioHugo.component'
+export { default as CardBioLeo } from './cardBio/leo/CardBioLeo.component'
+export { default as MarcoFoto } from './marcoFoto/MarcoFoto.component'

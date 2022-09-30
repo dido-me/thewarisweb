@@ -1,0 +1,5 @@
+export { default as Biografia } from './biografia/Biografia'
+export { default as CenizasAnimate } from './cenizasAnimate/CenizasAnimate'
+export { default as Discos } from './discos/Discos'
+export { default as Merch } from './merch/Merch'
+export { default as Noticias } from './noticias/Noticias'

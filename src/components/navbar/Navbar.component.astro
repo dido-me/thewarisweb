@@ -1,0 +1,198 @@
+---
+---
+
+<header class="Navbar">
+  <a href="#" class="Navbar__logo">
+    <img src="/logo-the-waris.png" alt="Logo-the-waris" />
+  </a>
+
+  <div class="Navbar__items">
+    <a href="#bio" class="Navbar__item">
+      <img src="/oso.png" alt="oso-the-waris" />
+      <h3>Biografía</h3>
+    </a>
+    <a href="#noticias" class="Navbar__item">
+      <img src="/puno.png" alt="puño-the-waris" />
+      <h3>Noticas</h3>
+    </a>
+    <a class="Navbar__item">
+      <img src="/microfono.png" alt="micro-the-waris" style="opacity: 0.5;" />
+      <h3>Conciertos</h3>
+      <h2>¡Muy Pronto!</h2>
+    </a>
+    <a href="#store" class="Navbar__item Store">
+      <img src="/etiqueta.png" alt="store-the-waris" />
+      <h3>Merch</h3>
+    </a>
+    <a href="#discos" class="Navbar__item">
+      <img src="/tocadisco.png" alt="disco-the-waris" />
+      <h3>Discografía</h3>
+    </a>
+  </div>
+
+  <a href="#" class="Navbar__hamburger">
+    <i class="gg-menu"></i> Menu
+  </a>
+</header>
+
+<div class="Sidebar">
+  <a href="#" class="Sidebar__close"><i class="gg-close-o"></i></a>
+  <ul class="Sidebar__links">
+    <li><a href="#bio" class="Sidebar__link">Biografía</a></li>
+    <li><a href="#noticias" class="Sidebar__link">Noticias</a></li>
+    <li><a href="#conciertos" class="Sidebar__link">Conciertos</a></li>
+    <li><a href="#store" class="Sidebar__link">Merch</a></li>
+    <li><a href="#discos" class="Sidebar__link">Discos</a></li>
+  </ul>
+</div>
+
+<style lang="scss">
+  @use './src/styles/mixins/mediaQueries';
+  @import url('https://css.gg/menu.css');
+  @import url('https://css.gg/close-o.css');
+
+  .Navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(#000000, 0.8);
+    z-index: 999;
+
+    &__logo {
+      width: 6.5em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      @include mediaQueries.for-phone {
+        width: 4em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+    }
+
+    &__items {
+      display: flex;
+      align-items: center;
+      gap: 4em;
+
+      @include mediaQueries.for-phone {
+        display: none;
+      }
+    }
+
+    &__item {
+      width: 2em;
+      position: relative;
+
+      & h3 {
+        display: none;
+      }
+
+      &:hover h3 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 0.5em;
+      }
+
+      & h2 {
+        display: none;
+      }
+
+      &:hover h2 {
+        position: absolute;
+        left: 50%;
+        top: 200%;
+        transform: translateX(-50%);
+        display: block;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 0.5em;
+        text-align: center;
+        background: #3e00c2;
+        padding: 0.5em;
+        border-radius: 0.5em;
+      }
+    }
+
+    &__hamburger {
+      display: none;
+      @include mediaQueries.for-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+      }
+    }
+  }
+
+  .Sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    z-index: 999;
+
+    &__close {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      color: #fff;
+      font-size: 2em;
+    }
+
+    &__links {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1em;
+      color: #fff;
+      font-size: 1.5em;
+    }
+
+    &__link {
+      text-align: center;
+    }
+  }
+
+  .active {
+    display: block;
+  }
+</style>
+
+<script>
+  const hamburger = document.querySelector('.Navbar__hamburger')
+  const sidebar = document.querySelector('.Sidebar')
+  const close = document.querySelector('.Sidebar__close')
+  const links = document.querySelectorAll('.Sidebar__link')
+
+  hamburger!.addEventListener('click', (e) => {
+    e.preventDefault()
+    sidebar!.classList.add('active')
+  })
+
+  close!.addEventListener('click', (e) => {
+    e.preventDefault()
+    sidebar!.classList.remove('active')
+  })
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      sidebar!.classList.remove('active')
+    })
+  })
+</script>
