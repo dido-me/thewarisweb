@@ -1,34 +1,33 @@
 import { useState } from 'react'
 import Slider from 'react-slick'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import styles from './Discos.module.scss'
 
-const discos = [
-  {
-    img: '/disco-suso.png',
-    link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
-  },
-  {
-    img: '/disco-mentiras.png',
-    link: 'https://open.spotify.com/album/59aqwqsEXt7l0wbZFAjl4e?si=CBz_NzdzTA2w24pZOcQTMA'
-  },
-  {
-    img: '/disco-suso.png',
-    link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
-  },
-  {
-    img: '/disco-suso.png',
-    link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
-  }
-]
-
 function Discos (): JSX.Element {
+  const discos = [
+    {
+      img: '/disco-suso.png',
+      link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
+    },
+    {
+      img: '/disco-mentiras.png',
+      link: 'https://open.spotify.com/album/59aqwqsEXt7l0wbZFAjl4e?si=CBz_NzdzTA2w24pZOcQTMA'
+    },
+    {
+      img: '/disco-suso.png',
+      link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
+    },
+    {
+      img: '/disco-suso.png',
+      link: 'https://open.spotify.com/album/5PwloThwcrPj6CcoJb4MB9?si=5tiZsZHoT5Ob9gkYX7hSJw'
+    }
+  ]
+
   const [imageIndex, setImageIndex] = useState(0)
 
   const NextArrow = ({ onClick }: any): JSX.Element => {
     return (
       <div className={styles.nextArrow} onClick={onClick}>
-        <IoIosArrowForward />
+        <i className={'gg-arrow-right-o'}></i>
       </div>
     )
   }
@@ -36,7 +35,7 @@ function Discos (): JSX.Element {
   const PrevArrow = ({ onClick }: any): JSX.Element => {
     return (
       <div className={styles.prevArrow} onClick={onClick}>
-        <IoIosArrowBack />
+        <i className={'gg-arrow-left-o'}></i>
       </div>
     )
   }
